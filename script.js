@@ -28,12 +28,10 @@ function addMessage(sender, text) {
     const messageElement = document.createElement('div');
     const avatarElement = document.createElement('img');
     const messageContentElement = document.createElement('div');
-    const nameElement = document.createElement('div');
 
     messageElement.classList.add('chat-message');
     avatarElement.classList.add('avatar');
     messageContentElement.classList.add('message-content');
-    nameElement.classList.add('message-name');
 
     messageContentElement.textContent = text;
 
@@ -41,17 +39,14 @@ function addMessage(sender, text) {
         messageElement.classList.add('user-message');
         avatarElement.src = 'https://easydrawingguides.com/wp-content/uploads/2017/05/how-to-draw-a-boy-featured-image-1200-1-466x1024.png';  // Path to user avatar image
         avatarElement.alt = 'User Avatar';
-        nameElement.textContent = 'User';  
     } else if (sender === 'bot') {
         messageElement.classList.add('bot-message');
         avatarElement.src = 'https://img.rolandberger.com/content_assets/content_images/captions/Roland_Berger-24_2195_Humanoid_robots-IT_image_caption_none.jpg';  // Path to bot avatar image
         avatarElement.alt = 'Bot Avatar';
-        nameElement.textContent = 'Bot'; 
     }
 
     messageElement.appendChild(avatarElement);
     messageElement.appendChild(messageContentElement);
-    messageElement.appendChild(nameElement); 
     chatHistory.appendChild(messageElement);
 
     // Scroll to the bottom of the chat history
@@ -74,3 +69,4 @@ function handleNewMessage(messageText) {
         showMessage(messageWrapper);
     });
 }
+
